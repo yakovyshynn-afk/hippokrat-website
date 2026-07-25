@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Комерційна пропозиція — продаючий сайт для стоматології</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#14352a;--green:#2a8a66;--green-d:#1c5340;--cyan:#5bbf94;--mint:#c8e8d5;
+  --sand:#fbf7ee;--sand-2:#f2ead9;--line:#e9e0cf;--ink:#23302a;--muted:#71736a;--gold:#bf9a4c;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:#e7e0d2;line-height:1.5;-webkit-font-smoothing:antialiased;padding:24px}
+.page{max-width:840px;margin:0 auto;background:var(--sand);border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(58,48,32,.22)}
+h1,h2,h3{font-family:'Unbounded',sans-serif;letter-spacing:-.01em;line-height:1.08}
+.head{background:linear-gradient(135deg,var(--navy),var(--green-d));color:#fff;padding:30px 36px;position:relative;overflow:hidden}
+.head::after{content:"";position:absolute;top:-45%;right:-6%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(91,191,148,.35),transparent 70%)}
+.eyebrow{display:inline-block;font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--navy);background:var(--mint);padding:6px 13px;border-radius:100px;margin-bottom:12px}
+.head h1{font-size:25px;position:relative;z-index:1}
+.head .sub{opacity:.92;font-size:13.5px;margin-top:8px;position:relative;z-index:1}
+.head .demo{margin-top:12px;position:relative;z-index:1;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;color:var(--navy);background:var(--cyan);padding:7px 13px;border-radius:100px}
+.body{padding:24px 36px 30px}
+.lead{font-size:14.5px;color:var(--navy);font-weight:600;background:var(--sand-2);border-left:4px solid var(--green);padding:12px 16px;border-radius:0 12px 12px 0;margin-bottom:20px}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:11px;margin-bottom:24px}
+.val{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px}
+.val .ic{width:32px;height:32px;border-radius:9px;background:var(--mint);color:var(--green-d);display:grid;place-items:center;margin-bottom:8px}
+.val b{display:block;font-size:12.5px;color:var(--navy);margin-bottom:2px}
+.val span{font-size:11px;color:var(--muted)}
+.sec-title{font-size:16px;color:var(--navy);margin-bottom:13px}
+.packs{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:13px;align-items:stretch}
+.pack{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:18px 16px;display:flex;flex-direction:column}
+.pack.best{border-color:var(--green);box-shadow:0 14px 34px rgba(42,138,102,.2);position:relative;background:linear-gradient(180deg,#fff,#f6fbf8)}
+.pack.best::before{content:"★ Оптимальний вибір";position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:10px;font-weight:800;letter-spacing:.04em;padding:5px 12px;border-radius:100px;white-space:nowrap}
+.pack .tier{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:4px}
+.pack h3{font-size:14.5px;color:var(--navy);margin-bottom:10px}
+.pack .price{font-family:'Unbounded';font-weight:800;color:var(--navy);line-height:1;margin-bottom:2px}
+.pack .price .cur{font-size:20px;vertical-align:top}
+.pack .price .amt{font-size:34px}
+.pack.best .price .amt{font-size:40px;color:var(--green-d)}
+.pack .grn{font-size:11px;font-weight:600;color:var(--muted);margin-bottom:11px}
+.pack ul{list-style:none;margin-top:2px}
+.pack li{font-size:11.5px;color:var(--ink);display:flex;gap:7px;align-items:flex-start;margin-bottom:6px}
+.pack li svg{flex-shrink:0;margin-top:2px;color:var(--green)}
+.pack li.off{color:#b7b2a6}.pack li.off svg{color:#cfcabb}
+.opts{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+.opts b{color:var(--navy)}
+.flow{margin-top:22px;background:var(--sand-2);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.flow .ft{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:12px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.step{display:flex;gap:9px;align-items:flex-start}
+.step .n{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center;font-family:'Unbounded'}
+.step b{display:block;font-size:12.5px;color:var(--navy)}
+.step span{font-size:11px;color:var(--muted)}
+.cta{margin-top:22px;background:var(--navy);color:#fff;border-radius:16px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.cta .roi b{font-family:'Unbounded';color:var(--cyan);font-size:14px;display:block}
+.cta .roi span{font-size:11.5px;opacity:.85}
+.cta-right{display:flex;flex-direction:column;align-items:flex-end;gap:9px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--green),var(--cyan));color:#fff;font-weight:800;font-size:14px;padding:13px 24px;border-radius:100px;text-decoration:none;box-shadow:0 10px 24px rgba(42,138,102,.4)}
+.contact{font-size:12px;text-align:right;opacity:.9}
+.contact b{color:#fff}
+.meta{display:flex;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:14px;justify-content:center}
+.meta b{color:var(--navy)}
+@media(max-width:740px){.values,.steps{grid-template-columns:1fr 1fr}.packs{grid-template-columns:1fr}.head,.body{padding-left:22px;padding-right:22px}.cta{flex-direction:column;align-items:flex-start}.cta-right{align-items:flex-start}.contact{text-align:left}}
+@media print{@page{size:A4;margin:0}body{background:#fff;padding:0}.page{box-shadow:none;border-radius:0;max-width:100%}.pack.best{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="head">
+    <span class="eyebrow">Комерційна пропозиція</span>
+    <h1>Продаючий сайт для стоматології — під ключ</h1>
+    <div class="sub">Розробка повністю онлайн, дистанційно · термін 2–3 тижні</div>
+    <span class="demo">● Живий приклад: клініка «Гіппократ», Вінниця — <span style="text-decoration:underline">[посилання на демо]</span></span>
+  </div>
+
+  <div class="body">
+    <div class="lead">Це не просто сайт — це система, що перетворює відвідувачів на записаних пацієнтів. Онлайн-запис у 1 клік, довіра через реальні відгуки, фото та результати «до/після». Все налаштовуємо дистанційно — від вас лише фото й інформація.</div>
+
+    <div class="values">
+      <div class="val"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 3h14v18l-7-4-7 4V3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span><b>Запис у 1 клік</b><span>Форма на кожній кнопці</span></div>
+      <div class="val"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="m12 2 3 6 6 .8-4.5 4.2 1.2 6L12 16.8 6.3 19l1.2-6L3 8.8 9 8l3-6Z" fill="currentColor"/></svg></span><b>Довіра з відгуків</b><span>Рейтинг, фото, лікарі</span></div>
+      <div class="val"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M8 7 4 12l4 5M16 7l4 5-4 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><b>Слайдер «До/Після»</b><span>Наочний результат</span></div>
+      <div class="val"><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="6" y="3" width="12" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M11 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span><b>Адаптив + швидкість</b><span>Телефон · планшет · ПК</span></div>
+    </div>
+
+    <h2 class="sec-title">Пакети та вартість</h2>
+    <div class="packs">
+      <div class="pack">
+        <div class="tier">Макет</div>
+        <h3>Дизайн + верстка</h3>
+        <div class="price"><span class="cur">$</span><span class="amt">450</span></div>
+        <div class="grn">≈ 18 500 грн</div>
+        <ul>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Преміум-дизайн + анімації</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Адаптив (моб/планшет/ПК)</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Ваші фото та контент</li>
+          <li class="off"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>Без запуску в інтернет</li>
+        </ul>
+      </div>
+
+      <div class="pack best">
+        <div class="tier">Під ключ</div>
+        <h3>Сайт + запуск + заявки</h3>
+        <div class="price"><span class="cur">$</span><span class="amt">900</span></div>
+        <div class="grn">≈ 37 000 грн · оплата в грн за курсом</div>
+        <ul>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Все з пакета «Макет»</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Робоча форма → заявки в Telegram-бот / на пошту</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Домен + хостинг (налаштування)</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Базове SEO + Google Бізнес-профіль</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Готовність під рекламу (Analytics + Pixel)</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Запуск в інтернет «під ключ»</li>
+        </ul>
+      </div>
+
+      <div class="pack">
+        <div class="tier">Максимум</div>
+        <h3>Під ключ + просування</h3>
+        <div class="price"><span class="cur">$</span><span class="amt">1300</span></div>
+        <div class="grn">≈ 53 000 грн · + $70/міс</div>
+        <ul>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Все з пакета «Під ключ»</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Налаштування таргет-реклами</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Місяць правок і підтримки</li>
+          <li><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Щомісячна підтримка (далі $70/міс)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="opts">Оплата: <b>50% передоплата, 50% після запуску</b> · безготівково або на картку · працюю офіційно та дистанційно</div>
+
+    <div class="flow">
+      <div class="ft">Як працюємо — повністю онлайн</div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><div><b>Заявка</b><span>Обговорюємо в Telegram/Zoom</span></div></div>
+        <div class="step"><span class="n">2</span><div><b>Передоплата 50%</b><span>Фіксуємо умови й старт</span></div></div>
+        <div class="step"><span class="n">3</span><div><b>Доробка</b><span>Ваші фото, тексти, контакти</span></div></div>
+        <div class="step"><span class="n">4</span><div><b>Запуск</b><span>Сайт онлайн за 2–3 тижні</span></div></div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <div class="roi"><b>Окупність — з 1–2 пацієнтів</b><span>Один імплант чи протезування перекриває вартість сайту</span></div>
+      <div class="cta-right">
+        <a class="btn" href="[ваше посилання: Telegram / форма]">Замовити сайт →</a>
+        <div class="contact"><b>[Ваше ім'я]</b> · [@telegram] · [+380 __ ___ __ __]</div>
+      </div>
+    </div>
+
+    <div class="meta"><span>Термін: <b>2–3 тижні</b></span><span>Робота <b>дистанційно, по всій Україні</b></span><span>Гарантія на роботу сайту</span></div>
+  </div>
+</div>
+</body>
+</html>
