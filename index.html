@@ -1163,15 +1163,22 @@ setTimeout(()=>{document.getElementById('preloader').classList.add('done');docum
 })();
 
 /* ===== scroll progress + header + sticky ===== */
-const header=document.getElementById('header'),progress=document.getElementById('progress'),sticky=document.getElementById('stickyBar'),fab=document.getElementById('fab');
+const header=document.getElementById('header'),progress=document.getElementById('progress'),sticky=document.getElementById('stickyBar'),fab=document.getElementById('fab'),heroEl=document.getElementById('top');
 function onScroll(){
   const st=window.scrollY;
   header.classList.toggle('scrolled',st>40);
   const hgt=document.documentElement.scrollHeight-window.innerHeight;
   progress.style.width=(st/hgt*100)+'%';
   if(window.innerWidth<=680) sticky.classList.toggle('show',st>560);
-  if(fab) fab.classList.toggle('show', st > window.innerHeight*0.6);
   document.querySelectorAll('.float-card').forEach((c,i)=>{c.style.transform=`translateY(${st*(0.03+i*0.015)*-1}px)`;});
+  /* пряма перевірка позиції героя — надійний дубль до IntersectionObserver,
+     не залежить від жодних таймінгів чи висоти вʼюпорту (важливо для Safari iOS) */
+  if(heroEl){
+    const show=heroEl.getBoundingClientRect().bottom<0;
+    if(fab)fab.classList.toggle('show',show);
+    const tt=document.getElementById('toTop');
+    if(tt)tt.classList.toggle('show',show);
+  }
 }
 window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
@@ -1316,11 +1323,22 @@ function updateNavSpy(){
 }
 window.addEventListener('scroll',updateNavSpy,{passive:true});
 
-/* ===== кнопка "нагору" ===== */
+/* ===== кнопка "нагору": з'являється разом із fab, коли герой проскролений =====
+   Основна перевірка — пряма (у onScroll вище, надійна на будь-якому пристрої).
+   IntersectionObserver тут — додатковий, миттєвіший тригер там, де підтримується. */
 const toTopBtn=document.getElementById('toTop');
 if(toTopBtn){
-  window.addEventListener('scroll',()=>{toTopBtn.classList.toggle('show',window.scrollY>700);},{passive:true});
   toTopBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduceMotion?'auto':'smooth'}));
+}
+if(heroEl && (toTopBtn||fab) && 'IntersectionObserver' in window){
+  const heroIO=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      const show=!entry.isIntersecting;
+      if(fab) fab.classList.toggle('show',show);
+      if(toTopBtn) toTopBtn.classList.toggle('show',show);
+    });
+  },{threshold:0,rootMargin:'-120px 0px 0px 0px'});
+  heroIO.observe(heroEl);
 }
 
 /* ===== form ===== */
