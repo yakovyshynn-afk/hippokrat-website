@@ -109,6 +109,7 @@ img{max-width:100%;display:block}
 .pl-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue-500),var(--cyan));animation:load 1.7s ease forwards}
 @keyframes load{to{width:100%}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes fadeUpCentered{from{opacity:0;transform:translateX(-50%) translateY(12px)}to{opacity:1;transform:translateX(-50%)}}
 
 /* ============ CUSTOM CURSOR ============ */
 .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference}
@@ -185,7 +186,7 @@ header.scrolled{background:rgba(255,255,255,.82);backdrop-filter:blur(18px) satu
 .fc2{bottom:96px;right:-46px;animation:floaty 6s ease-in-out infinite .5s}.fc2 .ic{background:linear-gradient(135deg,var(--gold),#f59e0b)}
 .fc3{bottom:-22px;left:24px;animation:floaty 5.5s ease-in-out infinite 1s}.fc3 .ic{background:linear-gradient(135deg,var(--blue-500),var(--cyan))}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
-.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:0;animation:fadeUp .8s ease 1.6s forwards}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:0;animation:fadeUpCentered .8s ease 1.6s forwards}
 .mouse{width:24px;height:38px;border:2px solid var(--blue-400);border-radius:14px;position:relative}
 .mouse::after{content:"";position:absolute;top:7px;left:50%;transform:translateX(-50%);width:4px;height:7px;border-radius:3px;background:var(--blue-500);animation:wheel 1.6s infinite}
 @keyframes wheel{0%{opacity:0;top:7px}30%{opacity:1}100%{opacity:0;top:18px}}
